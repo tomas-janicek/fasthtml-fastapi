@@ -15,6 +15,7 @@ dependencies = [
     "sqlmodel>=0.0.24",
     "svcs>=25.1.0",
     "typer>=0.15.2",
+    "url-normalize>=1.4.3",
 ]
 
 [dependency-groups]

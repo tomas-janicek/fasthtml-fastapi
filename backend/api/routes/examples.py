@@ -1,40 +1,42 @@
 import svcs
 from fastapi import APIRouter, HTTPException
-from sqlalchemy.orm import Session
+from sqlmodel import Session
 from starlette import status
 
-from api.domain import dto
-from api.views import examples as views
+from backend.domain import dto
+from backend.service_layer import examples_service
+from backend.views import examples as views
 
 router = APIRouter()
 
 
 @router.post(
-    "/example",
+    "",
 )
 def create_example(
     services: svcs.fastapi.DepContainer,
-    example: dto.ExampleDto,
+    example_in: dto.ExampleIn,
 ) -> int:
     """
     Create example.
     """
     session = services.get(Session)
-    session.add(example)
-    session.commit()
+
+    examples_service.add_example(session, example_in)
 
     return status.HTTP_201_CREATED
 
 
-@router.get("/{example_id}", response_model=dto.ExampleDto)
+@router.get("/{example_id}", response_model=dto.ExampleIn)
 def read_example_by_id(
     services: svcs.fastapi.DepContainer,
     example_id: int,
-) -> dto.ExampleDto:
+) -> dto.ExampleIn:
     """
     Get a specific example by id.
     """
     session = services.get(Session)
+
     example = views.read_example_by_id(session, example_id)
     if not example:
         raise HTTPException(
@@ -46,13 +48,13 @@ def read_example_by_id(
 
 @router.get(
     "",
-    response_model=dto.ExamplesDto,
+    response_model=dto.ExampleList,
 )
 def read_examples(
     services: svcs.fastapi.DepContainer,
     skip: int = 0,
     limit: int = 100,
-) -> dto.ExamplesDto:
+) -> dto.ExampleList:
     """
     Retrieve examples.
     """

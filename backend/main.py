@@ -6,9 +6,9 @@ from fastapi.routing import APIRoute
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 
-from api.api.main import api_router
-from api.bootstrap import bootstrap
-from api.core.config import LOGGING, settings
+from backend.api.main import api_router
+from backend.bootstrap import bootstrap
+from backend.core.config import LOGGING, settings
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:

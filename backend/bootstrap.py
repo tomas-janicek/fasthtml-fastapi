@@ -1,7 +1,8 @@
 import svcs
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import sessionmaker
+from sqlmodel import Session
 
-from api.core import db
+from backend.core import db
 
 
 def bootstrap(registry: svcs.Registry) -> None:

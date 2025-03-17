@@ -2,10 +2,10 @@ import json
 import typing
 
 from fastapi.encoders import jsonable_encoder
-from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
+from sqlmodel import create_engine, select
 
-from api.core.config import settings
+from backend.core.config import settings
 
 
 def _custom_json_serializer(*args: typing.Any, **kwargs: typing.Any) -> str:

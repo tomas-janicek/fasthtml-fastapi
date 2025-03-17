@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     # 60 minutes * 24 hours * 8 days = 8 days
     DOMAIN: str = "localhost"
     ENVIRONMENT: Literal["local", "staging", "production"] = "local"
+    DEFAULT_TIMEOUT: int = 10
+    BASE_BE_URL: str = "http://localhost:8000/api/v1/"
 
     BASE_DIR: Path = Path(__file__).parent.parent
 

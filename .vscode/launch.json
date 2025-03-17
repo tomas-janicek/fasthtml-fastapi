@@ -5,13 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug Core",
+            "consoleTitle": "Debug Core",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/core.py",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+        },
+        {
             "name": "Debug FastAPI",
             "consoleTitle": "Debug FastAPI",
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "api.main:app",
+                "backend.main:app",
                 "--reload"
             ],
             "cwd": "${workspaceFolder}",
@@ -23,7 +36,7 @@
             "consoleTitle": "Debug FastHTML",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceRoot}/ui/main.py",
+            "program": "${workspaceRoot}/frontend/main.py",
             "env": {
                 "PYTHONPATH": "."
             },
@@ -49,14 +62,14 @@
             "consoleTitle": "Create DB",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/api/cli.py",
+            "program": "${workspaceFolder}/backend/cli.py",
             "args": [
                 "create-db"
             ],
             "cwd": "${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env",
             "env": {
-                "PYTHONPATH": "."
+                "PYTHONPATH": "${workspaceFolder}"
             },
             "justMyCode": false,
         },

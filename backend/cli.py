@@ -2,10 +2,10 @@ import logging
 
 import svcs
 import typer
-from sqlmodel import SQLModel
 
-from api.bootstrap import bootstrap
-from api.core.db import engine
+from backend.bootstrap import bootstrap
+from backend.core.db import engine
+from backend.domain.models import SQLModel
 
 _log = logging.getLogger(__name__)
 
