@@ -3,8 +3,8 @@ import httpx
 from fasthtml import ft, pico
 from fasthtml.fastapp import fast_app
 
-from backend.core.config import settings
 from frontend import clients, dto, requests
+from frontend.config import settings
 
 app, rt = fast_app()
 

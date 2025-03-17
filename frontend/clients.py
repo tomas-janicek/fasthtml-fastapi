@@ -1,5 +1,5 @@
-from backend.core.config import settings
 from frontend import dto, requests
+from frontend.config import settings
 
 
 class BackendClient:

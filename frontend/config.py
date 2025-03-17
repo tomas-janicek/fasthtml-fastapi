@@ -9,13 +9,13 @@ class Settings(BaseSettings):
     )
 
     BASE_DIR: Path = Path(__file__).parent.parent
-    BASE_BE_URL: str = "http://localhost:8000/api/v1/"
+    BASE_BE_URL: str
 
     DEFAULT_TIMEOUT: int = 10
     LOGGING_LEVEL: str = "INFO"
 
 
-settings = Settings()
+settings = Settings()  # type: ignore
 
 
 LOGGING = {
